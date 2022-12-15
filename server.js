@@ -6,6 +6,8 @@ const port = 3000;
 
 
 ///middleware
+app.use(express.static("public"))
+
 app.use(methodOverride("_method"))
 
 app.use((req, res, next) => {

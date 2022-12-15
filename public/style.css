@@ -1,0 +1,68 @@
+.card {
+      display: flex;
+      justify-content: space-around;
+      padding: 20px;
+      max-width: 400px;
+      height: 155px;
+      margin: 20px;
+      border-radius: 10px;
+      background-color: #E2E8F0;
+      box-shadow:
+        0 9px 33px rgba(0, 0, 0, 0.07);
+    }
+
+    .card-text{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 250px;
+        margin-left: 10px;
+    }
+
+
+    .card-img{
+        width: 75px;
+        height: 75px;
+        border-radius: 50%;
+    }
+
+
+    .card-description{
+        margin: 10px 0;
+    }
+
+
+    .card-link{
+        margin-top: 20px;
+    }
+
+
+    .card-skills {
+        display: flex;
+        justify-content: space-between;
+    }
+
+.card-img{
+    background-color: #4F46E5;
+}
+
+.card-title{
+    font-size: 16px;
+    color: #334155;
+}
+
+.card-description{
+    font-size: 12px;
+    color: #64748B;
+}
+
+.card-skills .skill {
+    font-size: 12px;
+    font-weight: 600;
+    color: #475569;
+}
+
+.card-link{
+    font-size: 12px;
+    color: #4F46E5;
+}

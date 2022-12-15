@@ -4,24 +4,115 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Pokedex</title>
+    <style>
+        html{
+            background: linear-gradient(
+                    to right,
+                    rgba(252, 110, 149, 0.6),
+                    rgba(217, 84, 19, 1) 95%
+            );
+        }
+        .card {
+          display: flex;
+          justify-content: space-around;
+          padding: 20px;
+          max-width: 400px;
+          height: 155px;
+          margin: 20px;
+          border-radius: 10px;
+          background-color: #E2E8F0;
+          box-shadow:
+            0 9px 33px rgba(0, 0, 0, 0.07);
+        }
+    
+        .card-text{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 250px;
+            margin-left: 10px;
+        }
+    
+        .card-img{
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+        }
+    
+        .card-description{
+            margin: 10px 0;
+        }
+    
+        .card-link{
+            margin-top: 20px;
+        }
+    
+        .card-skills {
+            display: flex;
+            justify-content: space-between;
+        }
+      
+    .card-title{
+        font-size: 16px;
+        color: #334155;
+    }
+    
+    .card-description{
+        font-size: 12px;
+        color: #64748B;
+    }
+    
+    .card-skills .skill {
+        font-size: 12px;
+        font-weight: 600;
+        color: #475569;
+        
+        justify-content: space-between;
+    }
+    
+    .card-link{
+        font-size: 12px;
+        color: #4F46E5;
+    }
+    .form{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+     </style>
   </head>
+
   <body>
     <h1>Pokemon Index Page</h1>
     <nav>
       <a href="/new">Add a New Pokemon</a>
     </nav>
-    <ul>
-      <% for (let i = 0; i < data.length; i++) { %>
-      <li>
-        <a href="/<%=i%>"><%=data[i].name %></a>
-       
-        <form action="/<%=i; %>?_method=DELETE" method="POST">
-          <input type="submit" value="DELETE"/>
-        </form>
-        <a href="/<%=i%>/edit">Edit</a>
-      </li>
-      <br />
-      <% } %>
-    </ul>
+
+    <% for (let i = 0; i < data.length; i++) { %>
+        <div class="card">   
+            <div>
+                <img class="card-img" src=<%= data[i].img%>>
+            </div>
+            <div class="card-text">
+                <h2 class="card-title"><%=data[i].name%></h2>
+                <p class="card-description">
+                   <span><%=data[i].type%></span> 
+                </p>
+                <a href="/<%=i%>" class="card-link">See More</a>
+                <br />
+
+            <div class="form">
+                <form action="/<%=i%>/edit">
+                    <input type="submit" value="EDIT"/>
+                </form>
+                <form action="/<%=i; %>?_method=DELETE" method="POST">
+                    <input type="submit" value="DELETE"/>
+                </form>
+                
+            </div>
+            </div>
+        </div>
+    <% } %>
   </body>
 </html>
