@@ -1,7 +1,17 @@
 const express = require('express');
 const app = express();
-const Pokemon = require('../models/pokemon.js');
+const methodOverride = require("method-override")
+const Pokemon = require('./models/pokemon.js');
+const port = 3000;
 
+
+///middleware
+app.use(methodOverride("_method"))
+
+app.use((req, res, next) => {
+  console.log("I run for all routes")
+  next()
+});
 
 // I
 app.get('/', (req, res) => {
@@ -41,7 +51,7 @@ app.get("/:id/edit", (req, res) =>{
     res.render(
       "edit.ejs",
       {
-        characters: Pokemon[req.params.id],
+        data: Pokemon[req.params.id],
         index: req.params.id,
       }
     )
@@ -57,3 +67,6 @@ app.get("/", (req, res) => {
     res.send(Pokemon)
   })
 
+app.listen(port, ()=> {
+    console.log("Listening...");
+})
